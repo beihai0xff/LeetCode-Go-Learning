@@ -16,12 +16,12 @@ func twoSum1(nums []int, target int) []int {
 	lens := len(nums)
 	for i := 0; i < lens; i++ {
 		another := target - nums[i]
-		m := i
-		for m < lens {
-			if another == nums[m] {
-				return []int{i, m}
+		j := i
+		for j < lens {
+			if another == nums[j] {
+				return []int{i, j}
 			}
-			m++
+			j++
 		}
 	}
 	return nil
