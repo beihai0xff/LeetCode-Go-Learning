@@ -8,6 +8,7 @@
 package leetcode
 
 import (
+	. "LeetCode/Util"
 	"math"
 	"sort"
 )
@@ -21,8 +22,8 @@ func threeSumClosest(nums []int, target int) int {
 			// 双指针求和
 			for low, high := i+1, lens-1; low < high; {
 				sum := nums[i] + nums[low] + nums[high]
-				if abs(sum-target) < diff {
-					res, diff = sum, abs(sum-target)
+				if AbsInt(sum-target) < diff {
+					res, diff = sum, AbsInt(sum-target)
 				}
 				if sum == target {
 					return res
@@ -35,11 +36,4 @@ func threeSumClosest(nums []int, target int) int {
 		}
 	}
 	return res
-}
-
-func abs(a int) int {
-	if a > 0 {
-		return a
-	}
-	return -a
 }
