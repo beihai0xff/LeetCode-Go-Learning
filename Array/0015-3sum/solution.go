@@ -9,9 +9,9 @@ package leetcode
 
 import "sort"
 
-// 双指针 + 求双数和
+// 双指针 + 求双数和，提前计算好任意 3 个数字之和，用 map 保存
 func threeSum(nums []int) [][]int {
-	var res [][]int
+	var result [][]int
 	counter := map[int]int{}
 	for _, value := range nums {
 		counter[value]++
@@ -26,27 +26,27 @@ func threeSum(nums []int) [][]int {
 	for i := 0; i < len(uniqNums); i++ {
 		// 全为 0
 		if (uniqNums[i] == 0) && counter[uniqNums[i]] >= 3 {
-			res = append(res, []int{0, 0, 0})
+			result = append(result, []int{0, 0, 0})
 		}
 		for j := i + 1; j < len(uniqNums); j++ {
 			// 有两个 uniqNums[i]
 			if (uniqNums[i]*2+uniqNums[j] == 0) && counter[uniqNums[i]] > 1 {
-				res = append(res, []int{uniqNums[i], uniqNums[i], uniqNums[j]})
+				result = append(result, []int{uniqNums[i], uniqNums[i], uniqNums[j]})
 			}
 			// 有两个 uniqNums[j]
 			if (uniqNums[j]*2+uniqNums[i] == 0) && counter[uniqNums[j]] > 1 {
-				res = append(res, []int{uniqNums[i], uniqNums[j], uniqNums[j]})
+				result = append(result, []int{uniqNums[i], uniqNums[j], uniqNums[j]})
 			}
 			// 三个全不同
 			// 计算第三个数
 			c := 0 - uniqNums[i] - uniqNums[j]
 			// 查找
 			if c > uniqNums[j] && counter[c] > 0 {
-				res = append(res, []int{uniqNums[i], uniqNums[j], c})
+				result = append(result, []int{uniqNums[i], uniqNums[j], c})
 			}
 		}
 	}
-	return res
+	return result
 }
 
 // 排序 + 双指针
