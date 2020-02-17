@@ -24,7 +24,7 @@ func Test_searchRange(t *testing.T) {
 	}{
 		{"test1", args{[]int{5, 7, 7, 8, 8, 10}, 8}, []int{3, 4}},
 		{"test2", args{[]int{5, 7, 7, 8, 8, 10}, 6}, []int{-1, -1}},
-		{"test2", args{[]int{7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7}, 7}, []int{0, 12}},
+		{"test3", args{[]int{7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7}, 7}, []int{0, 12}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -47,7 +47,7 @@ func Test_searchRange1(t *testing.T) {
 	}{
 		{"test1", args{[]int{5, 7, 7, 8, 8, 10}, 8}, []int{3, 4}},
 		{"test2", args{[]int{5, 7, 7, 8, 8, 10}, 6}, []int{-1, -1}},
-		{"test2", args{[]int{7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7}, 7}, []int{0, 12}},
+		{"test3", args{[]int{7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7}, 7}, []int{0, 12}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -70,7 +70,7 @@ func Benchmark_searchRange(b *testing.B) {
 	}{
 		{"test1", args{[]int{5, 7, 7, 8, 8, 10}, 8}, []int{3, 4}},
 		{"test2", args{[]int{5, 7, 7, 8, 8, 10}, 6}, []int{-1, -1}},
-		{"test2", args{[]int{7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7}, 7}, []int{0, 12}},
+		{"test3", args{[]int{7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7}, 7}, []int{0, 12}},
 	}
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
@@ -92,7 +92,7 @@ func Benchmark_searchRange1(b *testing.B) {
 	}{
 		{"test1", args{[]int{5, 7, 7, 8, 8, 10}, 8}, []int{3, 4}},
 		{"test2", args{[]int{5, 7, 7, 8, 8, 10}, 6}, []int{-1, -1}},
-		{"test2", args{[]int{7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7}, 7}, []int{0, 12}},
+		{"test3", args{[]int{7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7}, 7}, []int{0, 12}},
 	}
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {

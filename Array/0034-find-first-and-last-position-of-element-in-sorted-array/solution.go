@@ -25,7 +25,7 @@ func searchRange(nums []int, target int) []int {
 func extremeInsertionIndex(nums []int, target int, left bool) int {
 	low, high := 0, len(nums)
 	for low < high {
-		mid := (low + high) >> 1
+		mid := low + (high-low)>>1
 		if nums[mid] > target || (left && nums[mid] == target) {
 			high = mid
 		} else {
