@@ -29,11 +29,11 @@ func combinationSum(candidates []int, target int) [][]int {
 	var c []int
 	var res [][]int
 	sort.Ints(candidates)
-	findCombinationSum(candidates, target, 0, c, &res)
+	dfs(candidates, target, 0, c, &res)
 	return res
 }
 
-func findCombinationSum(nums []int, target, index int, c []int, res *[][]int) {
+func dfs(nums []int, target, index int, c []int, res *[][]int) {
 	if target <= 0 {
 		if target == 0 {
 			// append 为弱复制，用临时变量更稳定
@@ -46,7 +46,7 @@ func findCombinationSum(nums []int, target, index int, c []int, res *[][]int) {
 	}
 	for i := index; i < len(nums); i++ {
 		c = append(c, nums[i])
-		findCombinationSum(nums, target-nums[i], i, c, res) // 注意这里迭代的时候 index 依旧不变，因为一个元素可以取多次
+		dfs(nums, target-nums[i], i, c, res) // 注意这里迭代的时候 index 依旧不变，因为一个元素可以取多次
 		c = c[:len(c)-1]
 	}
 }
