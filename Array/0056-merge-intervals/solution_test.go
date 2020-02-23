@@ -33,7 +33,7 @@ func Test_merge(t *testing.T) {
 	}
 }
 
-func Benchmark_canJump(b *testing.B) {
+func Benchmark_merge(b *testing.B) {
 	type args struct {
 		intervals [][]int
 	}
