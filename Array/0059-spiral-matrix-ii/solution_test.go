@@ -32,7 +32,7 @@ func Test_generateMatrix(t *testing.T) {
 	}
 }
 
-func Benchmark_maxSubArray(b *testing.B) {
+func Benchmark_generateMatrix(b *testing.B) {
 	type args struct {
 		n int
 	}

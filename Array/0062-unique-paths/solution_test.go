@@ -31,7 +31,7 @@ func Test_uniquePaths(t *testing.T) {
 	}
 }
 
-func Benchmark_maxSubArray(b *testing.B) {
+func Benchmark_uniquePaths(b *testing.B) {
 	type args struct {
 		m int
 		n int
