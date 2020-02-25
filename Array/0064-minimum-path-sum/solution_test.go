@@ -29,7 +29,7 @@ func Test_minPathSum(t *testing.T) {
 	}
 }
 
-func Benchmark_maxSubArray(b *testing.B) {
+func Benchmark_minPathSum(b *testing.B) {
 	type args struct {
 		grid [][]int
 	}
