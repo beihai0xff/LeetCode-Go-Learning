@@ -1,3 +1,3 @@
 
 
-go test -bench=. -benchmem -run=none
+go test -bench=. -benchtime=3s  -benchmem -run=none
