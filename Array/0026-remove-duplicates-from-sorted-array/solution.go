@@ -7,7 +7,7 @@
 
 package _026_remove_duplicates_from_sorted_array
 
-// 双指针，将删除的元素移动到数组后面的空间
+// //  26、27、80、283 原理相通，双指针，将删除的元素移动到数组后面的空间
 func removeDuplicates(nums []int) int {
 	if len(nums) == 0 {
 		return 0

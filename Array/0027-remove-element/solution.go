@@ -7,7 +7,7 @@
 
 package _027_remove_element
 
-// 双指针，元素数量较少
+// //  26、27、80、283 原理相通，双指针法
 func removeElement(nums []int, val int) int {
 	if len(nums) == 0 {
 		return 0
