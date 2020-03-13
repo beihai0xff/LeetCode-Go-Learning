@@ -20,14 +20,14 @@ func moveZeroes(nums []int) {
 	if len(nums) == 0 {
 		return
 	}
-	slowPointer := 0
-	for fastPointer := 0; fastPointer < len(nums); fastPointer++ {
+	slow := 0
+	for fast := 0; fast < len(nums); fast++ {
 		// 当前元素 != 0，就把它交换到左边，等于 0 的交换到右边
-		if nums[fastPointer] != 0 {
-			if fastPointer != slowPointer {
-				nums[fastPointer], nums[slowPointer] = nums[slowPointer], nums[fastPointer]
+		if nums[fast] != 0 {
+			if fast != slow {
+				nums[fast], nums[slow] = nums[slow], nums[fast]
 			}
-			slowPointer++
+			slow++
 		}
 	}
 }

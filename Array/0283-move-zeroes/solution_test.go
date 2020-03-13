@@ -34,7 +34,7 @@ func Test_moveZeroes(t *testing.T) {
 	}
 }
 
-func Benchmark_subsets(b *testing.B) {
+func Benchmark_moveZeroes(b *testing.B) {
 	type args struct {
 		nums []int
 	}

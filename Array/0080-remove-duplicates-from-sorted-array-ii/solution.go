@@ -19,12 +19,12 @@ func removeDuplicates(nums []int) int {
 	if len(nums) == 0 {
 		return 0
 	}
-	slowPointer, fastPointer := 1, 2
-	for ; fastPointer < len(nums); fastPointer++ {
-		if nums[fastPointer] != nums[slowPointer-1] {
-			slowPointer++
-			nums[slowPointer] = nums[fastPointer]
+	slow, fast := 1, 2
+	for ; fast < len(nums); fast++ {
+		if nums[fast] != nums[slow-1] {
+			slow++
+			nums[slow] = nums[fast]
 		}
 	}
-	return slowPointer + 1
+	return slow + 1
 }
