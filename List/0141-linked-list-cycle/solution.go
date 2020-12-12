@@ -7,7 +7,7 @@
 
 package _141_linked_list_cycle
 
-// 寻找两个链表的交叉点，思路类似于链表找环
+// 链表找环
 
 type ListNode struct {
 	Val  int
