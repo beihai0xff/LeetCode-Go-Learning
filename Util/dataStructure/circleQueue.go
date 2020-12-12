@@ -24,8 +24,10 @@ func (c CircleQueue) Push(val int) error {
 	if c.IsFull() {
 		return errors.New("queue is full")
 	}
+	c.lock.Lock()
 	c.tail = (c.tail + 1) % c.maxSize
 	c.array[c.tail] = val
+	c.lock.Unlock()
 	return nil
 }
 
@@ -33,8 +35,10 @@ func (c CircleQueue) Pop() (int, error) {
 	if c.IsEmpty() {
 		return 0, errors.New("queue is empty")
 	}
+	c.lock.Lock()
 	val := c.array[c.head]
 	c.head = (c.head + 1) % c.maxSize
+	c.lock.Unlock()
 	return val, nil
 }
 
