@@ -186,7 +186,7 @@ func (b *BinaryTree) BreadthFirstSearch() [][]int {
 后序遍历: e -> d -> g -> f -> b -> c -> a*/
 
 // 深度优先遍历：前中后序遍历
-func (b *BinaryTree) DepthFirstSearch() [][]int {
+func (b *BinaryTree) DepthFirstSearch() {
 	fmt.Println(b.Val) // 在这里输出是 前序
 	if b.Left != nil {
 		b.Left.DepthFirstSearch()
