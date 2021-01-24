@@ -1,11 +1,11 @@
 /*
  * Copyright (c) 2021.  beihai@wingsxdu.com. All right reserved
  * ProjectName: $LeetCode
- * LastModified: 2021/1/23 下午9:41
+ * LastModified: 2021/1/23 下午9:22
  * Author: beihai
  */
 
-package LinkedList
+package LeetCode_Go_Learing
 
 // 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
 
