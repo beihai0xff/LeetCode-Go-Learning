@@ -28,6 +28,7 @@ func merge(intervals [][]int) [][]int {
 	result = append(result, intervals[0])
 	curIndex := 0
 	for i := 1; i < len(intervals); i++ {
+		// 合并的条件是当前区间的左边界是否在上一个区间内
 		if intervals[i][0] > result[curIndex][1] {
 			curIndex++
 			result = append(result, intervals[i])
