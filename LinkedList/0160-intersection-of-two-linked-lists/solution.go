@@ -7,8 +7,6 @@
 
 package _160_intersection_of_two_linked_lists
 
-import . "LeetCode/Util"
-
 // 寻找两个链表的交叉点，思路类似于链表找环
 
 type ListNode struct {
