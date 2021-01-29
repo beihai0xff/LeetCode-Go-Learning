@@ -28,7 +28,7 @@ type MinStack struct {
 	minStack []int // 辅助栈，存储最小值
 }
 
-func Constructor() MinStack {
+func NewMinStack() MinStack {
 	return MinStack{
 		stack:    []int{},
 		minStack: []int{math.MaxInt64},

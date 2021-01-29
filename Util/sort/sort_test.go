@@ -33,8 +33,17 @@ func TestBubbleSort(t *testing.T) {
 }
 
 func Test_quickSort(t *testing.T) {
-	nums := []int{5, 4, 3, 2, 1}
+	nums := []int{3, 2, 5, 4, 1}
 	QuickSort(nums)
+	if nums[0] != 1 || nums[1] != 2 || nums[2] != 3 || nums[3] != 4 ||
+		nums[4] != 5 {
+		t.Error("QuickSort() failed. Got", nums, "Expected 1 2 3 4 5")
+	}
+}
+
+func Test_quickSort2(t *testing.T) {
+	nums := []int{4, 5, 3, 1, 2}
+	QuickSort2(nums, 0, len(nums)-1)
 	if nums[0] != 1 || nums[1] != 2 || nums[2] != 3 || nums[3] != 4 ||
 		nums[4] != 5 {
 		t.Error("QuickSort() failed. Got", nums, "Expected 1 2 3 4 5")

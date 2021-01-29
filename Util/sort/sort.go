@@ -50,6 +50,34 @@ func QuickSort(nums []int) {
 	QuickSort(nums[head+1:])
 }
 
+func QuickSort2(nums []int, left, right int) {
+	if left >= right {
+		return
+	}
+	if left < right {
+		key := nums[(left+right)/2] // 取中间值
+		l := left
+		r := right
+
+		for l < r { // 交换中间值两侧的元素
+			for nums[l] < key { // 找到左侧大于 key 的元素
+				l++
+			}
+			for nums[r] > key { // 找到右侧小于 key 的元素
+				r--
+			}
+			if l <= r {
+				nums[l], nums[r] = nums[r], nums[l]
+				l++
+				r--
+			}
+		}
+
+		QuickSort2(nums, left, r)
+		QuickSort2(nums, l, right)
+	}
+}
+
 // 插入排序
 func InsertionSort(nums []int) {
 	if len(nums) < 1 {
