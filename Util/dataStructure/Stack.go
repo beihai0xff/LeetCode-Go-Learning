@@ -63,3 +63,47 @@ func (s Stack) Pop() interface{} {
 	s.lock.Unlock()
 	return val
 }
+
+type Queue struct {
+	PopStack  []int
+	PushStack []int
+}
+
+/** Initialize your data structure here. */
+func NewQueue() Queue {
+	return Queue{
+		PopStack:  []int{},
+		PushStack: []int{},
+	}
+
+}
+
+/** Push element x to the back of queue. */
+func (q *Queue) Push(x int) {
+	q.PushStack = append(q.PushStack, x)
+}
+
+/** Removes the element from in front of queue and returns that element. */
+func (q *Queue) Pop() int {
+	if q.PopStack == nil { // PopStack 为空，将 PopStack 中的元素倒序移过来
+		for i := len(q.PushStack) - 1; i >= 0; i-- {
+			q.PopStack = append(q.PopStack, q.PushStack[i])
+		}
+	}
+	res := q.PopStack[len(q.PopStack)-1]
+	q.PopStack = q.PopStack[:len(q.PopStack)-2]
+	return res
+}
+
+/** Get the front element. */
+func (q *Queue) Peek() int {
+	return q.PushStack[len(q.PushStack)-1]
+}
+
+/** Returns whether the queue is empty. */
+func (q *Queue) Empty() bool {
+	if q.PushStack == nil && q.PopStack == nil {
+		return true
+	}
+	return false
+}
