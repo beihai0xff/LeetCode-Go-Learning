@@ -31,3 +31,35 @@ func (c *CQueue) DeleteHead() int {
 	}
 	return -1
 }
+
+type CQueue1 struct {
+	stackHead, stackTail []int
+}
+
+func Constructor1() CQueue1 {
+	return CQueue1{
+		stackHead: []int{},
+		stackTail: []int{},
+	}
+}
+
+func (c *CQueue1) AppendTail(value int) {
+	c.stackHead = append(c.stackHead, value)
+}
+
+func (c *CQueue1) DeleteHead() int {
+	if len(c.stackTail) == 0 {
+		for len(c.stackHead) > 0 {
+			index := len(c.stackHead) - 1
+			c.stackTail = append(c.stackTail, c.stackHead[index])
+			c.stackHead = c.stackHead[:index]
+		}
+	}
+	if len(c.stackTail) > 0 {
+		index := len(c.stackTail) - 1
+		res := c.stackTail[index]
+		c.stackTail = c.stackTail[:index]
+		return res
+	}
+	return -1
+}
