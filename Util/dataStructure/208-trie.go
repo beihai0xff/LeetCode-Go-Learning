@@ -49,3 +49,29 @@ func (t *Trie) searchPrefixNode(prefix string) *Trie {
 func (t *Trie) StartsWith(prefix string) bool {
 	return t.searchPrefixNode(prefix) != nil
 }
+
+func (t *Trie) IsConcatenated(prefix string) bool {
+	if prefix == "" {
+		return false
+	}
+	return t.isConcatenated(prefix)
+}
+
+func (t *Trie) isConcatenated(prefix string) bool {
+	if prefix == "" {
+		return true
+	}
+
+	node := t
+	for index, char := range prefix {
+		node = node.children[char-'a']
+		if node == nil {
+			return false
+		}
+		if node.isEnd && t.isConcatenated(prefix[index+1:]) {
+			return true
+		}
+	}
+	// 走到这一步说明递归到最后到 prefix 并非是一个完整的单词
+	return false
+}
