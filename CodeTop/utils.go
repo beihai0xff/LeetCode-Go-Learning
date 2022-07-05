@@ -13,3 +13,16 @@ func min(x, y int) int {
 	}
 	return y
 }
+
+func getValues(head *ListNode) []int {
+	if head == nil {
+		return nil
+	}
+	fast, res := head, []int{}
+	for fast != nil {
+		res = append(res, fast.Val)
+		fast = fast.Next
+	}
+
+	return res
+}
