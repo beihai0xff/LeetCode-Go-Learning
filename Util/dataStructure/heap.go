@@ -7,7 +7,7 @@
 
 package dataStructure
 
-// 本例为最小堆
+// Heap 本例为最小堆
 // 最大堆只需要修改 less 函数即可
 type Heap []int
 
@@ -25,7 +25,7 @@ func (h *Heap) Push(x int) {
 	h.up(len(*h) - 1)
 }
 
-// 删除堆中位置为 i 的元素
+// Remove 删除堆中位置为 i 的元素
 // 返回被删元素的值
 func (h *Heap) Remove(i int) (int, bool) {
 	if i < 0 || i > len(*h)-1 {
@@ -45,7 +45,7 @@ func (h *Heap) Remove(i int) (int, bool) {
 	return x, true
 }
 
-// 弹出堆顶的元素，并返回其值
+// Pop 弹出堆顶的元素，并返回其值
 func (h *Heap) Pop() int {
 	n := len(*h) - 1
 	h.swap(0, n)
