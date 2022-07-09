@@ -15,6 +15,9 @@ func rotateRight(matrix [][]int) {
 }
 
 func rotateLeft(matrix [][]int) {
+	if len(matrix) == 0 {
+		return
+	}
 	n := len(matrix)
 	// 垂直翻转
 	m := len(matrix[0])
