@@ -19,7 +19,7 @@ func (h Heap) Init() {
 	}
 }
 
-//
+// Push 添加一个元素
 func (h *Heap) Push(x int) {
 	*h = append(*h, x)
 	h.up(len(*h) - 1)
