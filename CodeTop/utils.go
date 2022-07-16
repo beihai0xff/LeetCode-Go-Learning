@@ -14,6 +14,14 @@ func min(x, y int) int {
 	return y
 }
 
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+
+	return x
+}
+
 func getValues(head *ListNode) []int {
 	if head == nil {
 		return nil
