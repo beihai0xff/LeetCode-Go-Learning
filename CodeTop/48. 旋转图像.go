@@ -19,7 +19,7 @@ func rotate1(matrix [][]int) {
 }
 
 // 方法二：先水平轴翻转，再主对角线翻转
-func rotate2(matrix [][]int) {
+func rotate(matrix [][]int) {
 	n := len(matrix)
 
 	for i := 0; i < n/2; i++ {
