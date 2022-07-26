@@ -18,3 +18,27 @@ func flatten(root *TreeNode) {
 		root.Left = nil
 	}
 }
+
+func flatten2(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	var preorderTraversal func(root *TreeNode) []*TreeNode
+	preorderTraversal = func(root *TreeNode) []*TreeNode {
+		if root == nil {
+			return nil
+		}
+		var res []*TreeNode
+		res = append(res, root)
+		res = append(res, preorderTraversal(root.Left)...)
+		res = append(res, preorderTraversal(root.Right)...)
+		return res
+	}
+
+	queue := preorderTraversal(root)
+	for i := 0; i < len(queue)-1; i++ {
+		queue[i].Right, queue[i].Left = queue[i+1], nil
+	}
+	queue[len(queue)-1].Right, queue[len(queue)-1].Left = nil, nil
+	return
+}
