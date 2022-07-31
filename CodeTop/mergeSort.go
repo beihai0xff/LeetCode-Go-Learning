@@ -38,16 +38,12 @@ func mergeInt(left []int, right []int) []int {
 
 	// 如果左侧区间还没有遍历完，将剩余数据放到结果集
 	if i != m {
-		for ; i < m; i++ {
-			result = append(result, left[i])
-		}
+		result = append(result, left[i:]...)
 	}
 
 	// 如果右侧区间还没有遍历完，将剩余数据放到结果集
 	if j != n {
-		for ; j < n; j++ {
-			result = append(result, right[j])
-		}
+		result = append(result, right[j:]...)
 	}
 
 	// 返回排序后的结果集
