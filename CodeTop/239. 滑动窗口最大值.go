@@ -1,32 +1,41 @@
 package CodeTop
 
-import "math"
+import (
+	"container/heap"
+	"sort"
+)
 
-type maxStack struct {
-	cap   int
-	max   []int
-	queue []int
+type hp struct {
+	sort.IntSlice
+	nums []int
 }
 
-func (q *maxStack) Push(num int) {
-	if len(q.max) == q.cap {
-		q.max = q.max[1:]
-		q.queue = q.queue[1:]
-	}
-	q.queue = append(q.queue, num)
-
-	maxTemp := math.MinInt
-	if q.cap != 0 {
-		maxTemp = q.max[len(q.max)-1]
-	}
-	q.max = append(q.max, max(maxTemp, num))
+func (h *hp) Less(i, j int) bool { return h.nums[h.IntSlice[i]] > h.nums[h.IntSlice[j]] }
+func (h *hp) Push(v interface{}) { h.IntSlice = append(h.IntSlice, v.(int)) }
+func (h *hp) Pop() interface{} {
+	tmp := h.IntSlice
+	v := tmp[len(tmp)-1]
+	h.IntSlice = tmp[:len(tmp)-1]
+	return v
 }
-
-func (q *maxStack) GetMax() int {
-	if q.cap == 0 {
-		return math.MinInt
+func maxSlidingWindow1(nums []int, k int) []int {
+	queue := &hp{make([]int, k), nums}
+	for i := 0; i < k; i++ {
+		queue.IntSlice[i] = i
 	}
-	return q.max[q.cap-1]
+	heap.Init(queue)
+
+	n := len(nums)
+	res := make([]int, 1, n-k+1)
+	res[0] = nums[queue.IntSlice[0]]
+	for i := k; i < n; i++ {
+		heap.Push(queue, i)
+		for queue.IntSlice[0] <= i-k {
+			heap.Pop(queue)
+		}
+		res = append(res, nums[queue.IntSlice[0]])
+	}
+	return res
 }
 
 // 单调队列
