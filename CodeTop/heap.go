@@ -1,5 +1,28 @@
 package CodeTop
 
+import (
+	"sort"
+)
+
+type MaxHeap struct {
+	sort.IntSlice
+}
+
+func (h *MaxHeap) Less(i, j int) bool {
+	return h.IntSlice[i] > h.IntSlice[j]
+}
+
+func (h *MaxHeap) Push(x interface{}) {
+	h.IntSlice = append(h.IntSlice, x.(int))
+}
+
+func (h *MaxHeap) Pop() interface{} {
+	tmp := h.IntSlice
+	res := tmp[len(tmp)-1]
+	h.IntSlice = tmp[:len(tmp)-1]
+	return res
+}
+
 type MinHeap struct {
 	arr []int
 	cap int
