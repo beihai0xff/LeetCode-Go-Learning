@@ -20,7 +20,7 @@ func mergeInt(left []int, right []int) []int {
 	i, j := 0, 0
 	m, n := len(left), len(right)
 	// 用于存放结果集
-	var result []int
+	result := make([]int, 0, m+n)
 	for {
 		// 任何一个区间遍历完，则退出
 		if i >= m || j >= n {
