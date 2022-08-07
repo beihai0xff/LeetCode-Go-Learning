@@ -18,6 +18,7 @@ func (h *hp) Pop() interface{} {
 	h.IntSlice = tmp[:len(tmp)-1]
 	return v
 }
+
 func maxSlidingWindow1(nums []int, k int) []int {
 	queue := &hp{make([]int, k), nums}
 	for i := 0; i < k; i++ {
