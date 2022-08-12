@@ -5,14 +5,9 @@ func mergeKLists(lists []*ListNode) *ListNode {
 		return nil
 	}
 	for len(lists) > 1 {
-		var tmp []*ListNode
-		for i := 0; i < len(lists)-1; i += 2 {
-			tmp = append(tmp, mergeTwoLists(lists[i], lists[i+1]))
-		}
-		if len(lists)%2 == 1 {
-			tmp = append(tmp, lists[len(lists)-1])
-		}
-		lists = tmp
+		l1, l2 := lists[0], lists[1]
+		lists = lists[2:]
+		lists = append(lists, mergeTwoLists(l1, l2))
 	}
 	return lists[0]
 }
